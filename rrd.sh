@@ -24,7 +24,7 @@ case $1 in
 			$RRA_DEF
 		;;
 	update)
-		rrdtool update $DATA_DIR/greenhouse.rrd `python getTemp.py`
+		rrdtool update $DATA_DIR/greenhouse.rrd `python $THIS_DIR/getTemp.py`
 	;;
 	graph)
 		for PERIOD in $PERIODS
