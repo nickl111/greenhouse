@@ -32,11 +32,14 @@ case $1 in
 			rrdtool graph $OUT_DIR/temp-$PERIOD.png \
 				--start now-${GRAPH_PERIOD}$PERIOD \
 				--vertical-label "Temperature C" \
-				--title "measurements for the last $PERIOD" \
+				--title "Measurements for the last $PERIOD" \
 				--width ${WIDTH} \
 				--height ${HEIGHT} \
 				--lower-limit 0 \
 				--rigid \
+				--right-axis 1:0 \
+				--right-axis-label "RH %" \
+				--right-axis-format %1.1lf \
 				--alt-autoscale ${OPTIONS} \
 				DEF:TEMP=$DATA_DIR/greenhouse.rrd:TEMP:AVERAGE \
 				DEF:HUMID=$DATA_DIR/greenhouse.rrd:HUMID:AVERAGE \
