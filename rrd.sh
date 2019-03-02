@@ -1,7 +1,7 @@
 #! /bin/bash
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-OUT_DIR=/var/www/html/greenhouse/
+OUT_DIR=/var/www/html/greenhouse
 mkdir -p $OUT_DIR
 
 DATA_DIR=/var/run/greenhouse
@@ -29,7 +29,7 @@ case $1 in
 	graph)
 		for PERIOD in $PERIODS
 		do
-			rrdtool graph $OUT_DIR/html/temp-$PERIOD.png \
+			rrdtool graph $OUT_DIR/temp-$PERIOD.png \
 				--start now-${GRAPH_PERIOD}$PERIOD \
 				--vertical-label "Temperature C" \
 				--title "measurements for the last $PERIOD" \
