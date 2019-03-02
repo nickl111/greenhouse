@@ -1,6 +1,11 @@
 #! /bin/bash
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. $THIS_DIR/../config.sh
+
+OUT_DIR=/var/www/html/greenhouse/
+mkdir -p $OUT_DIR
+
+DATA_DIR=/var/run/greenhouse
+mkdir -p $DATA_DIR
 
 GRAPH_PERIOD=1
 PERIODS="hour day week month year"
@@ -19,7 +24,7 @@ case $1 in
 			$RRA_DEF
 		;;
 	update)
-		rrdtool update $DATA_DIR/greenhouse.rrd `cat $OUTRRD`
+		rrdtool update $DATA_DIR/greenhouse.rrd `python getTemp.py`
 	;;
 	graph)
 		for PERIOD in $PERIODS
