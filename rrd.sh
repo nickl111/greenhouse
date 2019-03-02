@@ -4,7 +4,7 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OUT_DIR=/var/www/html/greenhouse
 mkdir -p $OUT_DIR
 
-DATA_DIR=/var/run/greenhouse
+DATA_DIR=/var/lib/greenhouse
 mkdir -p $DATA_DIR
 
 GRAPH_PERIOD=1

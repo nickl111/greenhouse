@@ -3,6 +3,11 @@
 Install:
 `apt-get install apache2 rrdtool bc`
 
+As root:
+```
+git clone blah^^^
+bash /root/greenhouse/rrd.sh create
+```
 
 Put this in the cron:
 
